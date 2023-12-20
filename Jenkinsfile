@@ -15,7 +15,7 @@ pipeline {
         stage('Push') {
             steps {
                 withCredentials([usernamePassword(credentialsId: '8644a4c1-68da-428f-8a13-a490f851c982', passwordVariable: 'DOCKER_HUB_PASSWORD', usernameVariable: 'DOCKER_HUB_USERNAME')]) {
-                    sh 'echo $DOCKER_HUB_PASSWORD | docker login -u $DOCKER_HUB_USERNAME --password-stdin' 
+                    sh 'echo $DOCKER_HUB_PASSWORD | docker login -u $DOCKER_HUB_USER --password-stdin' 
                     sh 'docker push appasaheb3/demo'
                 }
             }
